@@ -1,4 +1,4 @@
-# Project about Covid-19 in Italy by Krzysztof Lukasz and Daniel Zalewski
+# Project about Covid-19 in Italy by Krzysztof Łukasz and Daniel Zalewski
 
 
 ## 1. Project Objective
