@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 in Italy</title>
+    <style>
+        .title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+        .section {
+            margin: 20px;
+            font-size: 1.2em;
+        }
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .summary-image {
+            max-height: 80vh;
+            width: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .iframe-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        iframe {
+            width: 80%;
+            height: 600px;
+            border: none;
+        }
+        button {
+            margin-top: 20px;
+        }
+        .small-gif {
+            text-align: center;
+            max-width: 50%;
+            max-height: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Covid-19 in Italy</div>
+
+    <div class="section">
+        <strong>I. Cases</strong><br>
+        - The first known case of COVID-19 in the world was recorded on November 17, 2019, in Hubei Province, China. This case involved a 55-year-old man.<br>
+        - The first case of COVID-19 in Italy was confirmed on January 31, 2020. It involved two Chinese tourists who were in Rome.<br>
+        - The total number of confirmed COVID-19 cases in Italy exceeds 26.7 million.<br>
+        - The situation is closely monitored, and updates on the distribution of cases by region and healthcare resource burden are regularly published <a href="https://lab24.ilsole24ore.com/coronavirus/en/?refresh_ce=1" target="_blank">here</a>.<br>
+        - More detailed information about Covid-19 cases in Italy is presented in the charts below.
+    </div>
+
+    <div class="iframe-container">
+        <iframe src="./plots/cases_tests_compare.html"></iframe>
+    </div>
+
+    <div class="iframe-container">
+        <iframe src="./plots/age_pyramid.html"></iframe>
+    </div>
+
+    <div class="small-gif">
+        <img id="regionsanimGif" src="./plots/regions_animation.gif" alt="regions_anim">
+        <br>
+        <button id="playRegionsanim" onclick="restartGif('regionsanimGif', './plots/regions_animation.gif')">Restart Animation</button>
+    </div>
+
+    <div class="image-container">
+        <img id="regionsRaceGif" src="./plots/regions_race.gif" alt="regions_race">
+        <br>
+        <button id="playRegionsRace" onclick="restartGif('regionsRaceGif', './plots/regions_race.gif')">Restart Animation</button>
+    </div>
+
+    <div class="iframe-container">
+        <iframe src="./plots/most_and_less.html"></iframe>
+    </div>
+
+    <div class="section">
+        <strong>II. Mortality</strong><br>
+        - By the beginning of June 2024, nearly 0.2 million people had died from COVID-19 in Italy.<br>
+        - The mortality rate among those diagnosed with COVID-19 is approximately 0.7%.<br>
+        - COVID-19 related deaths are unevenly distributed across the country, with some regions, such as Lombardy, experiencing higher mortality rates compared to other regions.<br>
+        - More detailed information about COVID-19 mortality in Italy is presented in the charts below.
+    </div>
+
+    <div class="iframe-container">
+        <iframe src="./plots/cases_deaths_italy.html"></iframe>
+    </div>
+
+    <div class="iframe-container">
+        <iframe src="./plots/mortality.html"></iframe>
+    </div>
+
+    <div class="image-container">
+        <img id="regionMortalityMonthlyGif" src="./plots/region_mortality_monthly.gif" alt="region_mortality_monthly">
+        <br>
+        <button id="playRegionMortalityMonthly" onclick="restartGif('regionMortalityMonthlyGif', './plots/region_mortality_monthly.gif')">Restart Animation</button>
+    </div>
+
+    <div class="section">
+        <strong>III. Healthcare</strong><br>
+        - The Italian healthcare system faced enormous challenges due to the COVID-19 pandemic. Hospitals, especially in the northern part of the country, were overwhelmed, and medical resources, such as ventilators and intensive care beds, were severely limited.<br>
+        - To alleviate the burden on the healthcare system, Italy implemented a series of countermeasures, including the construction of temporary field hospitals, recruitment of additional medical staff, and increased production and import of medical equipment.<br>
+        - The COVID-19 vaccination campaign began at the end of 2020. By June 2024, the majority of the population had been vaccinated, significantly reducing the number of hospitalizations and deaths.<br>
+        - More detailed information about healthcare during COVID-19 in Italy is presented in the charts below.
+    </div>
+
+    <div class="iframe-container">
+        <iframe src="./plots/tests_italy.html"></iframe>
+    </div>
+
+    <div class="image-container">
+        <img id="covidChartImage" src="./plots/covid_positive_cases_pie_chart.gif" alt="pie_chart">
+        <br>
+        <button id="playCovidChart" onclick="restartGif('covidChartImage', './plots/covid_positive_cases_pie_chart.gif')">Restart Animation</button>
+    </div>
+
+    <div class="image-container">
+        <img id="polandItalyHospitalizedBarChartGif" src="./plots/poland_italy_hospitalized_bar_chart.gif" alt="poland_italy_hospitalized_bar_chart">
+        <br>
+        <button id="playPolandItalyHospitalizedBarChart" onclick="restartGif('polandItalyHospitalizedBarChartGif', './plots/poland_italy_hospitalized_bar_chart.gif')">Restart Animation</button>
+    </div>
+
+    <div class="image-container">
+        <img id="italyIntensiveCareVsDeceasedGif" src="./plots/italy_intensive_care_vs_deceased.gif" alt="italy_intensive_care_vs_deceased">
+        <br>
+        <button id="playItalyIntensiveCareVsDeceased" onclick="restartGif('italyIntensiveCareVsDeceasedGif', './plots/italy_intensive_care_vs_deceased.gif')">Restart Animation</button>
+    </div>
+
+    <div class="iframe-container">
+        <iframe src="./plots/vaccinated_population_poland_italy.html"></iframe>
+    </div>
+
+    <div class="image-container">
+        <img class="summary-image" src="./plots/summary.png" alt="summary">
+    </div>
+
+    <script>
+        function restartGif(imgId, imgSrc) {
+            var img = document.getElementById(imgId);
+            img.src = '';
+            img.src = imgSrc;
+        }
+    </script>
+</body>
+</html>
